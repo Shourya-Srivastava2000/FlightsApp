@@ -1,0 +1,16 @@
+# user 1
+create user1 user1 10000
+login user1 user1
+search "Denver CO" "Philadelphia PA" 1 16 1
+book 0
+quit
+*
+#
+# expected output
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 11 minutes
+ID: 504302 Day: 16 Carrier: US Number: 62 Origin: Denver CO Dest: Philadelphia PA Duration: 11 Capacity: 0 Price: 260
+Booking failed
+Goodbye
+*

@@ -1,0 +1,30 @@
+create user1 user1 100000
+login user1 user1
+search "Seattle WA" "Minneapolis MN" 1 1 3
+book 0
+search "Seattle WA" "Minneapolis MN" 0 4 3
+book 1
+pay 1
+pay 2
+quit
+*
+Created user user1
+Logged in as user1
+Itinerary 0: 1 flight(s), 164 minutes
+ID: 746985 Day: 1 Carrier: DL Number: 2314 Origin: Seattle WA Dest: Minneapolis MN Duration: 164 Capacity: 8 Price: 729
+Itinerary 1: 1 flight(s), 172 minutes
+ID: 341841 Day: 1 Carrier: NW Number: 1928 Origin: Seattle WA Dest: Minneapolis MN Duration: 172 Capacity: 0 Price: 699
+Itinerary 2: 1 flight(s), 174 minutes
+ID: 746977 Day: 1 Carrier: DL Number: 2308 Origin: Seattle WA Dest: Minneapolis MN Duration: 174 Capacity: 16 Price: 885
+Booked flight(s), reservation ID: 1
+Itinerary 0: 1 flight(s), 175 minutes
+ID: 755753 Day: 4 Carrier: DL Number: 1770 Origin: Seattle WA Dest: Minneapolis MN Duration: 175 Capacity: 12 Price: 626
+Itinerary 1: 1 flight(s), 181 minutes
+ID: 704707 Day: 4 Carrier: AS Number: 28 Origin: Seattle WA Dest: Minneapolis MN Duration: 181 Capacity: 6 Price: 305
+Itinerary 2: 1 flight(s), 181 minutes
+ID: 751919 Day: 4 Carrier: DL Number: 1140 Origin: Seattle WA Dest: Minneapolis MN Duration: 181 Capacity: 5 Price: 933
+Booked flight(s), reservation ID: 2
+Paid reservation: 1 remaining balance: 99271
+Paid reservation: 2 remaining balance: 98966
+Goodbye
+*

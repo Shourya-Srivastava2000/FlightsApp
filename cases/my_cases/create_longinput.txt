@@ -1,0 +1,6 @@
+create user1234567891234567890 user1234567891234567890 100
+quit
+*
+Failed to create user
+Goodbye
+*

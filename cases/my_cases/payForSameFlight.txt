@@ -1,0 +1,75 @@
+#user logs in from 2 terminals tries to pay for same flight twice
+#Terminal 1
+create user password 1000
+login user password
+search "Seattle WA" "Boston MA" 1 1 1
+book 0
+pay 1
+quit
+*
+#case 1: creates account, pays
+Created user user
+Logged in as user
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 860
+Goodbye
+|
+#case 2 - fails to create account first, pays
+Failed to create user
+Logged in as user
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Paid reservation: 1 remaining balance: 860
+Goodbye
+|
+#case 3 - created user first, fails to pay
+Created user user
+Logged in as user
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Cannot find unpaid reservation 1 under user: user
+Goodbye
+|
+#case 4 - fails to create account first, fails to pay
+Failed to create user
+Logged in as user
+Itinerary 0: 1 flight(s), 297 minutes
+ID: 60454 Day: 1 Carrier: AS Number: 24 Origin: Seattle WA Dest: Boston MA Duration: 297 Capacity: 14 Price: 140
+Booked flight(s), reservation ID: 1
+Cannot find unpaid reservation 1 under user: user
+Goodbye
+*
+#Terminal 2
+create user password 1000
+login user password
+pay 1
+quit
+*
+#case 1 fails to create account first, fails to pay first
+Failed to create user
+Logged in as user
+Cannot find unpaid reservation 1 under user: user
+Goodbye
+|
+#case 2 create account first, fails to pay first
+Created user user
+Logged in as user
+Cannot find unpaid reservation 1 under user: user
+Goodbye
+|
+#case 3 fails to create account first, pay first
+Created user user
+Logged in as user
+Paid reservation: 1 remaining balance: 860
+Goodbye
+|
+#case 4 create account first,  pay first
+Created user user
+Logged in as user
+Paid reservation: 1 remaining balance: 860
+Goodbye
+*

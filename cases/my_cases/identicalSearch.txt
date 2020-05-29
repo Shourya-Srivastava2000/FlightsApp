@@ -1,0 +1,23 @@
+#two users concurrently run identical search which return no results
+#user 1
+create user1 password 100
+login user1 password
+search "Seattle WA" "Abilene TX" 1 1 1
+quit
+*
+Created user user1
+Logged in as user1
+No flights match your selection
+Goodbye
+*
+#user2
+create user2 password 100
+login user2 password
+search "Seattle WA" "Abilene TX" 1 1 1
+quit
+*
+Created user user2
+Logged in as user2
+No flights match your selection
+Goodbye
+*

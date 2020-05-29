@@ -1,0 +1,19 @@
+#User1 attempts to create account with neg balance, fails
+#User2 attempt to create account with same username, succeeds
+#User1 atttempts to create account with corrrect balance, fails because username exists
+#user 1
+create user password -100
+create user password 100
+quit
+*
+Failed to create user
+Failed to create user
+Goodbye
+*
+#User 2
+create user password 200
+quit
+*
+Created user user
+Goodbye
+*
