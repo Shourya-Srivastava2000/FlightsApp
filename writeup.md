@@ -1,3 +1,38 @@
+This repo contains the java code for the backend of a flight-booking service. 
+
+It achieves two main goals:
+  1. Design a database of your customers and the flights they book
+  2. Completes a working prototype of your flight booking application that connects to the database (in Azure) then allows customers to       use a CLI to search, book, cancel, etc. flights.
+
+This service is based on the tables Flights, Carriers, Months, and Weekdays.
+The application does not modify the data in these tables, as it only pertains to flight booking and not to scheduling. 
+Users interact with your service by running the client application.
+
+The client application can either:
+
+  store information locally (just inside the client program) and transiently (not saved after the program closes), in which case this information does not need to be stored in a server database.
+  or, store information globally (accessible to all client programs) and persistently (saved after the program closes),
+in which case this information needs to be stored in a server database.
+
+
+
+Users: A user has a username (varchar), password (varbinary), and balance (int) in their account.
+All usernames are unique in the system. Each user can have any number of reservations.
+Usernames are case insensitive (this is the default for SQL Server).
+Passwords are case sensitive as they are being salted and hashed through a java application. 
+You can assume that all usernames and passwords have at most 20 characters.
+
+
+Itineraries: An itinerary is either a direct flight (consisting of one flight: origin --> destination) or
+a one-hop flight (consisting of two flights: origin --> stopover city, stopover city --> destination). Itineraries are returned by the search command.
+
+Reservations: A booking for an itinerary, which may consist of one (direct) or two (one-hop) flights.
+Each reservation can either be paid or unpaid, cancelled or not, and has a unique ID.
+
+
+
+Below, I have justified the design I chose for the database vis.a.vis creating new tables. 
+
 All tables are stored in the server, as they have aspects not local to a particular user. 
 
 ### Reservations
